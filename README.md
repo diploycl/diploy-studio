@@ -1,4 +1,6 @@
 # Diploy Studio
+Para desplegar directamente en Cloudflare Workers con D1, R2 y Access, sigue [CLOUDFLARE.md](./CLOUDFLARE.md).
+
 CRM privado con React/Vinext, Cloudflare D1 y R2. Autenticación administrada por Sites mediante ChatGPT; no se usa Supabase ni Astro en esta edición alojada.
 
 ## Operación

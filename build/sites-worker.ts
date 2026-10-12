@@ -1,9 +1,21 @@
 import handler from "vinext/server/fetch-handler";
 import { runWithConnectorBinding } from "../lib/connector-context";
 import type { ConnectorBinding } from "../lib/connector-contract.mjs";
+import { authenticateCloudflareRequest } from "../lib/cloudflare-access.mjs";
 
 export default {
-  fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
+  async fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
+    if (import.meta.env.DIPLOY_CLOUDFLARE) {
+      try {
+        const authenticated = await authenticateCloudflareRequest(request, env);
+        if (authenticated instanceof Response) return authenticated;
+        request = authenticated;
+      } catch {
+        return new Response("Configura Cloudflare Access antes de usar el CRM.", {
+          status: 503, headers: { "Cache-Control": "no-store" },
+        });
+      }
+    }
     let binding = ctx.props?.CONNECTORS;
     // Local preview emulates the same request-scoped capability. This branch and
     // the auxiliary service binding are absent from production builds.
