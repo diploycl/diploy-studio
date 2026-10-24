@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +19,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
   const { error } = await searchParams;
   return (
     <main className="login">
+      <ThemeToggle className="login-theme" />
       <form action={signIn}>
         <h1>diploy._<small>/ studio</small></h1>
         <label>Correo<input name="email" type="email" autoComplete="email" required /></label>
