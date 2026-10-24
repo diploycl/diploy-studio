@@ -2,19 +2,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Diploy: preparar base local",
-      "type": "shell",
-      "command": "npm run db:local",
-      "windows": { "command": "npm.cmd run db:local" },
-      "options": { "cwd": "${workspaceFolder}" },
-      "problemMatcher": []
-    },
-    {
       "label": "Diploy: iniciar vista en vivo",
-      "dependsOn": "Diploy: preparar base local",
-      "type": "process",
-      "command": "node",
-      "args": ["scripts/run-framework.mjs", "dev"],
+      "type": "shell",
+      "command": "npm run dev",
+      "windows": { "command": "npm.cmd run dev" },
       "options": { "cwd": "${workspaceFolder}" },
       "problemMatcher": [],
       "presentation": { "reveal": "always", "panel": "dedicated" }
