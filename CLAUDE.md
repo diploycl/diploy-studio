@@ -15,6 +15,14 @@ CRM privado del estudio Diploy (Maca y Paolo). UI en español (es-CL, CLP, `Amer
 ## Arquitectura
 - **`app/studio.tsx`:** toda la UI del CRM en un componente cliente de unos 40 KB, **minificado en pocas líneas**. Editar con reemplazos exactos (Edit o un script node con conteo de coincidencias), nunca reformatear.
   - Vistas por estado `view`: Inicio, Proyectos, Clientes, Cotizaciones, Finanzas, Calendario, Correos, Configuración.
+  - **Detalle de proyecto** (pestañas): Resumen · Alcance · Cronograma · Moodboard · Validación y entrega · Archivos. Es el tablero de seguimiento interno, con el formato de la propuesta de Robles Camper (`diploy-robles-camper.vercel.app`); no hay vista para el cliente. Se quitaron las pestañas Etapas, Decisiones y Dinero (`save()` vacía `decisions`; pagos, gastos y cotizaciones siguen en Finanzas y Cotizaciones).
+  - **Cronograma** = componente `Gantt` (arriba de `Studio`): grilla de días hábiles (Día 1…N), filtros de área y prioridad, "Inicio referencial" (simulación en pantalla, lunes a viernes), diálogo de detalle con Anterior/Siguiente, barras arrastrables que guardan fechas. El toggle **Lista** muestra la antigua pestaña Etapas (etapas arrastrables, tareas con check).
+  - Campos del proyecto añadidos (el zod usa `.passthrough()`, no hay migración): `areas` (Alcance), `validation` (tarjetas con checklist), `duties` (Diploy/Cliente), `files` (título + enlace o archivo, por modal), `faq` (Coordinación, en Resumen), `seeded`. Tareas: `start`, `due`, `area`, `output`, `who`, `priority` (Baja/Normal/Media/Alta), responsable `Cliente` permitido.
+  - Plantillas (`templates`): guardan etapas, áreas, tareas con offsets de fecha, validación y responsabilidades. El modal de proyecto permite importar una plantilla `.json`.
+- **`lib/seed/`:** datos cargados automáticamente por `load()` en `studio.tsx` (un solo PUT con `revision`; si falla, reintenta en la próxima carga y nunca repite).
+  - `robles-camper.ts`: cliente, proyecto de 22 tareas, plantilla (id `seed-robles-camper` es la marca) y cotización.
+  - `longko-kilapang.ts`: fases 2 y 3 del libro, sobre el proyecto `libro` ("Memoria Lonko Kilapan"); solo rellena lo vacío y se marca con `seeded:'longko'`.
+  - Para ver datos en vivo: el usuario abre `/api/workspace` logueado y guarda el JSON (por ejemplo en Descargas). Leerlo solo en local, **nunca** commitearlo ni copiar datos de clientes al repo público.
 - **`app/model.ts`:** `initialData`, estados, etapas, `money()` y `quoteTotal()` (IVA 1.19).
 - **Datos:** todo el workspace es **un JSON** en `public.workspaces` (id `'studio'`, `data jsonb`, `revision`).
   - Guardado con bloqueo optimista vía RPC `save_workspace(p_id, p_data, p_revision)`, que devuelve null si hay conflicto (409).
@@ -54,4 +62,5 @@ CRM privado del estudio Diploy (Maca y Paolo). UI en español (es-CL, CLP, `Amer
   - Mantener chequeo de sesión, validación de Origin, límites de tamaño antes de parsear, RLS y cabeceras.
   - Como el repo es público, nunca commitear `.env*` (salvo `.env.example`).
 - **Metodología:** ODD (Organic Driven Development) de gentle-ai para features grandes, con especificación en `odd/tasks/<feature>.md`.
+- **Datos en vivo antes de sembrar o migrar:** pedir el export JSON (arriba) y probar el cambio contra él con un script tsx temporal que valide con el zod de la ruta; no suponer el contenido a partir de `model.ts`.
 - **Atribución:** commits con el trailer `Co-Authored-By` indicado por el sistema.

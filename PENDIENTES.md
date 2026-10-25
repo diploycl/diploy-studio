@@ -23,5 +23,11 @@ El código ya está en producción. Falta la configuración.
 ## Seguridad en GitHub
 - [ ] Activar Secret scanning, Push protection y Dependabot alerts en Settings → Code security
 
+## Proyectos en curso (revisar con el equipo)
+- [ ] Memoria Lonko Kilapan: las fechas del sitio de descarga (16 nov–4 dic) son estimadas, el PDF no las da. La publicación llega al 11 dic y la entrega cargada es el 28 nov: decidir cuál manda
+- [ ] Memoria Lonko Kilapan: completar lo "por definir" del PDF (título, apellido del responsable, N° de propuestas y rondas de portada, costo del hosting, condiciones de pago, cantidad de imágenes)
+- [ ] Robles Camper: las tareas tienen fechas reales desde el lunes 26 oct; si cambia el inicio acordado, mover las barras o usar "Inicio referencial" solo para simular
+- [ ] Probar en producción el Cronograma (arrastrar barras, diálogo, filtros), Validación y entrega y el modal de Archivos: aún no se verificaron en navegador
+
 ## Siguiente feature
 - [ ] F4: CRM relacional (clientes, contactos, oportunidades por etapa, actividades), con ODD (gentle-ai)
