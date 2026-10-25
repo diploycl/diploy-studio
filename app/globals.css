@@ -30,3 +30,14 @@
 .record .actions{display:flex;gap:8px}
 @media(max-width:900px){.email-layout{grid-template-columns:1fr}.email-recipients{max-height:320px}}
 .record .section-head .actions{margin-top:0}
+
+.gantt-filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}.gantt-filters .actions{margin-left:auto}
+.gantt{border:1px solid var(--line);overflow-x:auto}.gantt-inner{min-width:720px}
+.gantt-row{display:grid;grid-template-columns:200px 1fr;border-top:1px solid var(--line);align-items:center}.gantt-row:first-child{border-top:0}
+.gantt-label{padding:8px 10px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:none;border:0;color:var(--ink);text-align:left;cursor:pointer}
+.gantt-track{position:relative;height:30px;border-left:1px solid var(--line);background-image:linear-gradient(to right,var(--line) 1px,transparent 1px)}
+.gantt-head .gantt-track{background-image:none;color:var(--muted)}
+.gantt-bar{position:absolute;top:6px;height:18px;background:var(--violet);cursor:grab;touch-action:none;min-width:6px}
+.gantt-bar.high{background:var(--pink)}.gantt-bar.done{background:var(--dim)}
+.gantt-handle{position:absolute;right:0;top:0;width:8px;height:100%;cursor:ew-resize;background:rgba(0,0,0,.3)}
+.gantt-today{position:absolute;top:0;bottom:0;border-left:1px solid var(--orange-text)}
