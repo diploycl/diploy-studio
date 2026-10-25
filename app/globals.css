@@ -31,16 +31,24 @@
 @media(max-width:900px){.email-layout{grid-template-columns:1fr}.email-recipients{max-height:320px}}
 .record .section-head .actions{margin-top:0}
 
-.gantt-filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}.gantt-filters .actions{margin-left:auto}
-.gantt{border:1px solid var(--line);overflow-x:auto}.gantt-inner{min-width:720px}
-.gantt-row{display:grid;grid-template-columns:200px 1fr;border-top:1px solid var(--line);align-items:center}.gantt-row:first-child{border-top:0}
-.gantt-label{padding:8px 10px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:none;border:0;color:var(--ink);text-align:left;cursor:pointer}
-.gantt-track{position:relative;height:30px;border-left:1px solid var(--line);background-image:linear-gradient(to right,var(--line) 1px,transparent 1px)}
-.gantt-head .gantt-track{background-image:none;color:var(--muted)}
-.gantt-bar{position:absolute;top:6px;height:18px;background:var(--violet);cursor:grab;touch-action:none;min-width:6px}
-.gantt-bar.high{background:var(--pink)}.gantt-bar.done{background:var(--dim)}
-.gantt-handle{position:absolute;right:0;top:0;width:8px;height:100%;cursor:ew-resize;background:rgba(0,0,0,.3)}
-.gantt-today{position:absolute;top:0;bottom:0;border-left:1px solid var(--orange-text)}
 
-.gantt-stage{background:var(--surface)}.gantt-stage .gantt-label{color:var(--pink-text);font-weight:600}
-.gantt-sim{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted)}
+
+.gantt-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.gantt-filters .actions{margin-left:auto}
+.gantt-sim{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted)}.gantt-count{font-size:11px;color:var(--muted)}
+.gantt-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:8px 0}.gantt-legend i{display:inline-block;width:10px;height:10px;margin-right:5px}
+.gantt{border:1px solid var(--line);overflow-x:auto}.gantt-inner{min-width:980px}
+.gantt-row{display:grid;grid-template-columns:260px 1fr;border-top:1px solid var(--line);align-items:stretch}.gantt-row:first-child{border-top:0}
+.gantt-head{background:var(--surface);font-size:11px;color:var(--muted)}
+.gantt-task{display:flex;gap:10px;align-items:center;padding:8px 10px;background:none;border:0;color:var(--ink);text-align:left;cursor:pointer;min-width:0}
+.gantt-head .gantt-task{cursor:default;color:var(--muted)}
+.gantt-task .task-id{color:var(--pink-text);font-size:11px}
+.gantt-task .task-name,.gantt-task .task-owner{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gantt-task .task-name{font-size:12px}.gantt-task .task-owner{font-size:10px;color:var(--muted)}
+.gantt-grid{position:relative;display:grid;min-height:44px}
+.gantt-grid>span{border-left:1px solid var(--line);font-size:10px;padding:4px 2px;text-align:center}
+.gantt-head .gantt-grid>span small{display:block;opacity:.7}
+.gantt-bar{position:absolute;top:12px;height:20px;background:var(--violet);cursor:grab;touch-action:none;min-width:8px}
+.gantt-bar.p-alta{background:var(--pink)}.gantt-bar.p-baja{background:var(--dim)}.gantt-bar.done{opacity:.45}
+.gantt-handle{position:absolute;right:0;top:0;width:8px;height:100%;cursor:ew-resize;background:rgba(0,0,0,.3)}
+.gantt-stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}.gantt-stages .record{margin:0}
+.gantt-dialog .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
