@@ -41,3 +41,6 @@
 .gantt-bar.high{background:var(--pink)}.gantt-bar.done{background:var(--dim)}
 .gantt-handle{position:absolute;right:0;top:0;width:8px;height:100%;cursor:ew-resize;background:rgba(0,0,0,.3)}
 .gantt-today{position:absolute;top:0;bottom:0;border-left:1px solid var(--orange-text)}
+
+.gantt-stage{background:var(--surface)}.gantt-stage .gantt-label{color:var(--pink-text);font-weight:600}
+.gantt-sim{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted)}
