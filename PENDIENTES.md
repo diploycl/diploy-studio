@@ -29,5 +29,7 @@ El código ya está en producción. Falta la configuración.
 - [ ] Robles Camper: las tareas tienen fechas reales desde el lunes 26 oct; si cambia el inicio acordado, mover las barras o usar "Inicio referencial" solo para simular
 - [ ] Probar en producción el Cronograma (arrastrar barras, diálogo, filtros), Validación y entrega y el modal de Archivos: aún no se verificaron en navegador
 
+- [x] Cronograma: Exportar/Importar JSON de tareas (actualiza por id, agrega nuevas, no borra). Lógica probada con script; falta probar en navegador con sesión
+
 ## Siguiente feature
 - [ ] F4: CRM relacional (clientes, contactos, oportunidades por etapa, actividades), con ODD (gentle-ai)
