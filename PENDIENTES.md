@@ -31,5 +31,12 @@ El código ya está en producción. Falta la configuración.
 
 - [x] Cronograma: Exportar/Importar JSON de tareas (actualiza por id, agrega nuevas, no borra). Lógica probada con script; falta probar en navegador con sesión
 
+- [x] Responsive: menú off-canvas en móvil, riel de íconos en tablet, tabla de Proyectos como tarjetas, Kanban apilado, pestañas del proyecto en cuadrícula, modal de actividad con márgenes, objetivos táctiles de 44 px
+- [x] Lista del cronograma: subtareas (checklist) con progreso y casillas bajo cada tarea
+- [x] Gantt: cuadrícula que crece con los días y columna "Hoy" que se mueve sola
+- [ ] Probar en navegador con sesión (celular real o 375 px y 800 px): menú lateral, tarjetas de Proyectos, Gantt hasta el último día, columna Hoy, subtareas y modal de actividad. Nada de lo anterior se verificó en pantalla
+- [ ] Reordenar etapas en la Lista no funciona con el dedo (arrastre HTML5): agregar botones subir/bajar
+- [ ] Hay una versión nueva de la skill Impeccable (v4.8.0, instalada 4.5.2): actualizar con `npx impeccable update` en una sesión nueva
+
 ## Siguiente feature
 - [ ] F4: CRM relacional (clientes, contactos, oportunidades por etapa, actividades), con ODD (gentle-ai)
